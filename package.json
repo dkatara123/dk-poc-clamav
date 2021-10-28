@@ -1,0 +1,15 @@
+{
+  "name": "kpmg-spectrum-clamavwrapper",
+  "version": "1.0.0",
+  "private": true,
+  "description": "API wrapper for clamav",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Manish Sathe <msathe@kpmg.com>",
+  "engines": {
+    "node": ">=14"
+  },
+  "license": "ISC"
+}

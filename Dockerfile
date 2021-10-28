@@ -1,5 +1,5 @@
-FROM node:8
-MAINTAINER Yeung Yiu Hung <hkclex@gmail.com>
+FROM node:14
+
 
 # Install ClamAV and supervisord
 # Debian Base to use
@@ -14,7 +14,7 @@ RUN echo "deb http://http.debian.net/debian/ $DEBIAN_VERSION main contrib non-fr
         clamav-daemon \
         clamav-freshclam \
         libclamunrar7 \
-        supervisor \
+        clamAvWrapper.js \
         wget && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
@@ -45,7 +45,7 @@ COPY . /server
 RUN npm install && npm run postinstall
 
 # Copy supervisor config
-COPY ./configs/supervisord.conf /etc/supervisor/conf.d/supervisord-nodejs.conf
+COPY ./configs/index.js /etc/index/index.js/index-node.js
 
 EXPOSE 3000
 CMD ["/usr/bin/supervisord", "-n"]
